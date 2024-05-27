@@ -3,6 +3,6 @@ const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "",
+  database: "api_service_express",
 });
 module.exports = db;
