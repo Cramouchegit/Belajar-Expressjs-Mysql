@@ -62,80 +62,80 @@ These instructions will get you a copy of the project up and running on your loc
 7. Lalu Ubah sedikit untuk get data users & products:
 
     ```bash
-  app.get("/api/users", (req, res) => {
-  const idUsers = req.params.id;
-  console.log("idUsers =>", idUsers);
-  const sqlQuery = `SELECT * FROM users`;
-  db.query(sqlQuery, (err, result) => {
-    if (result.length > 0) {
-      res.json({
-        status: 200,
-        payload: result,
-        message: "success ambil data users",
-      });
-    } else {
-      res.json({
-        status: 400,
-        payload: result,
-        message: "gagal ambil data users",
-      });
-    }
-  });
-});
+	  app.get("/api/users", (req, res) => {
+	  const idUsers = req.params.id;
+	  console.log("idUsers =>", idUsers);
+	  const sqlQuery = `SELECT * FROM users`;
+	  db.query(sqlQuery, (err, result) => {
+	    if (result.length > 0) {
+	      res.json({
+	        status: 200,
+	        payload: result,
+	        message: "success ambil data users",
+	      });
+	    } else {
+	      res.json({
+	        status: 400,
+	        payload: result,
+	        message: "gagal ambil data users",
+	      });
+	    }
+	  });
+	});
 
-Untuk Mengambil atau menghit endpoint Per id nya menggunakan route seperti ini =>
-
-  app.get("/api/users/:id", (req, res) => {
-  const idUsers = req.params.id;
-  console.log("idUsers =>", idUsers); //Untuk Mengecek datanya ada atau tidak
-  const sqlQuery = `SELECT * FROM users WHERE id = ${idUsers}`;
-  db.query(sqlQuery, (err, result) => {
-    if (result.length > 0) {
-      res.json({
-        status: 200,
-        payload: result,
-        message: "success ambil data users",
-      });
-    } else {
-      res.json({
-        status: 400,
-        payload: result,
-        message: "gagal ambil data users",
-      });
-    }
-  });
-});
+	Untuk Mengambil atau menghit endpoint Per id nya menggunakan route seperti ini =>
+	
+	  app.get("/api/users/:id", (req, res) => {
+	  const idUsers = req.params.id;
+	  console.log("idUsers =>", idUsers); //Untuk Mengecek datanya ada atau tidak
+	  const sqlQuery = `SELECT * FROM users WHERE id = ${idUsers}`;
+	  db.query(sqlQuery, (err, result) => {
+	    if (result.length > 0) {
+	      res.json({
+	        status: 200,
+	        payload: result,
+	        message: "success ambil data users",
+	      });
+	    } else {
+	      res.json({
+	        status: 400,
+	        payload: result,
+	        message: "gagal ambil data users",
+	      });
+	    }
+	  });
+	});
     ```
     ```bash
-Kalau tidak ada datanya di database maka =>
-kita akan cek seperti ini
-
-app.get("/users/:id", (req, res) => {
-  const idUsers = req.params.id;
-  console.log("idUsers =>", idUsers);
-  const sqlQuery = `SELECT * FROM users WHERE id = ${idUsers}`;
-  db.query(sqlQuery, (err, result) => {
-	console.log("result=>", result)
-    if (result !==  0) {
-      res.json({
-        status: 200,
-        payload: result,
-        message: "success ambil detail data users",
-      });
-    } else {
-      res.json({
-        status: 400,
-        payload: result,
-        message: "gagal ambil detail data users",
-      });
-    }
-  });
-});
-
-Output=>
-status: 400,
-payload: result,
-message: "gagal ambil detail data users",
+	Kalau tidak ada datanya di database maka =>
+	kita akan cek seperti ini
+	
+	app.get("/users/:id", (req, res) => {
+	  const idUsers = req.params.id;
+	  console.log("idUsers =>", idUsers);
+	  const sqlQuery = `SELECT * FROM users WHERE id = ${idUsers}`;
+	  db.query(sqlQuery, (err, result) => {
+		console.log("result=>", result)
+	    if (result !==  0) {
+	      res.json({
+	        status: 200,
+	        payload: result,
+	        message: "success ambil detail data users",
+	      });
+	    } else {
+	      res.json({
+	        status: 400,
+	        payload: result,
+	        message: "gagal ambil detail data users",
+	      });
+	    }
+	  });
+	});
+	
+	Output=>
+	status: 400,
+	payload: result,
+	message: "gagal ambil detail data users",
     ```
     
 ## Untuk yang products pun tinggal diganti url routenya saja 
@@ -143,26 +143,26 @@ message: "gagal ambil detail data users",
 8. Menggunakan post method:
 
     ```bash
-  app.post("/api/users", (req, res) => {
-  const bodyUsers = req.body;
-  // console.log("bodyUsers =>", bodyUsers);
-  const sqlQuery = `insert into users set username = "${bodyUsers.username}",email = "${bodyUsers.email}",age = ${bodyUsers.age},city = "${bodyUsers.city}",address = "${bodyUsers.address}"`;
-  db.query(sqlQuery, (err, result) => {
-    if (result) {
-      res.json({
-        status: 201,
-        payload: result,
-        message: "success post users",
-      });
-    } else {
-      res.json({
-        status: 400,
-        payload: result,
-        message: "gagal post users",
-      });
-    }
-  });
-});
+	  app.post("/api/users", (req, res) => {
+	  const bodyUsers = req.body;
+	  // console.log("bodyUsers =>", bodyUsers);
+	  const sqlQuery = `insert into users set username = "${bodyUsers.username}",email = "${bodyUsers.email}",age = ${bodyUsers.age},city = "${bodyUsers.city}",address = "${bodyUsers.address}"`;
+	  db.query(sqlQuery, (err, result) => {
+	    if (result) {
+	      res.json({
+	        status: 201,
+	        payload: result,
+	        message: "success post users",
+	      });
+	    } else {
+	      res.json({
+	        status: 400,
+	        payload: result,
+	        message: "gagal post users",
+	      });
+	    }
+	  });
+	});
     ```
 
 ## Untuk Yang Products Pun tinggal diganti ganti saja :)
@@ -170,51 +170,51 @@ message: "gagal ambil detail data users",
 9. Menggunakan put / update:
 
     ```bash
-  app.put("/api/users/:id", (req, res) => {
-  const id = req.params.id;
-  const bodyUsers = req.body;
-  // console.log("bodyUsers =>", bodyUsers);
-  const sqlQuery = `update users set username ="${bodyUsers.username}",email= "${bodyUsers.email}", age = ${bodyUsers.age}, city= "${bodyUsers.city}", address= "${bodyUsers.address}" where id = ${id}`;
-  db.query(sqlQuery, (err, result) => {
-    if (result) {
-      res.json({
-        status: 200,
-        payload: result,
-        message: "success update users",
-      });
-    } else {
-      res.json({
-        status: 400,
-        payload: result,
-        message: "gagal update users",
-      });
-    }
-  });
-});
+	  app.put("/api/users/:id", (req, res) => {
+	  const id = req.params.id;
+	  const bodyUsers = req.body;
+	  // console.log("bodyUsers =>", bodyUsers);
+	  const sqlQuery = `update users set username ="${bodyUsers.username}",email= "${bodyUsers.email}", age = ${bodyUsers.age}, city= "${bodyUsers.city}", address= "${bodyUsers.address}" where id = ${id}`;
+	  db.query(sqlQuery, (err, result) => {
+	    if (result) {
+	      res.json({
+	        status: 200,
+	        payload: result,
+	        message: "success update users",
+	      });
+	    } else {
+	      res.json({
+	        status: 400,
+	        payload: result,
+	        message: "gagal update users",
+	      });
+	    }
+	  });
+	});
     ```
 
 10. Menggunakan delete:
 
     ```bash
-  app.delete("/api/products/:id", (req, res) => {
-  const id = req.params.id;
-  const sqlQuery = `delete from products where id = ${id}`;
-  db.query(sqlQuery, (err, result) => {
-    if (result.affectedRows > 0) {
-      res.json({
-        status: 200,
-        payload: result,
-        message: "success delete/hapus products",
-      });
-    } else {
-      res.json({
-        status: 400,
-        payload: result,
-        message: "gagal delete/hapus products",
-      });
-    }
-  });
-});
+	  app.delete("/api/products/:id", (req, res) => {
+	  const id = req.params.id;
+	  const sqlQuery = `delete from products where id = ${id}`;
+	  db.query(sqlQuery, (err, result) => {
+	    if (result.affectedRows > 0) {
+	      res.json({
+	        status: 200,
+	        payload: result,
+	        message: "success delete/hapus products",
+	      });
+	    } else {
+	      res.json({
+	        status: 400,
+	        payload: result,
+	        message: "gagal delete/hapus products",
+	      });
+	    }
+	  });
+	});
     ```
 
 ### Usage
