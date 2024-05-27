@@ -11,9 +11,9 @@ This is an open-source project that combines the power of NodeJS and ExpressJS t
 ![image](https://avatars.githubusercontent.com/u/124861834?v=4)
 
 ## Dipastikan sudah menginstall NODE JS dan LARAGON + PhpMyAdmin
-https://nodejs.org/en
-https://laragon.org/download/index.html
-https://www.phpmyadmin.net/downloads/
+<p>https://nodejs.org/en</p>
+<p>https://laragon.org/download/index.html</p>
+<p>https://www.phpmyadmin.net/downloads/</p>
 Jika sudah maka lanjutkan.
 
 - Basic ExpressJS.
